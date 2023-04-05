@@ -17,8 +17,6 @@ const randomizeButton = document.querySelector('#randomizeButton');
 const swapColorsButton = document.querySelector('#swapColorsButton');
 const numStepsSlider = document.getElementById("numStepsSlider");
 
-
-
 numSteps.addEventListener('input', () => {
     numStepsSlider.value = numSteps.value;
     onClick();
@@ -65,6 +63,7 @@ document.getElementById("copyButton").addEventListener("click", function () {
     alert("Copied the text: " + outputTextArea.value);
 });
 
+// update and display
 function onClick() {
     const color1 = document.getElementById("color1").value;
     const color2 = document.getElementById("color2").value;
@@ -115,6 +114,7 @@ function onClick() {
     displayOutput(colors, outputStyle);
 }
 
+// create a random color
 function getRandomColor() {
     const letters = '0000111223456789ABCDDEEEFFFF';
     let color = '#';
@@ -124,6 +124,7 @@ function getRandomColor() {
     return color;
 }
 
+// swap colors
 function swapColors() {
     const color1Input = document.getElementById("color1");
     const color2Input = document.getElementById("color2");
@@ -133,6 +134,7 @@ function swapColors() {
     onClick();
 }
 
+// data interpolation 
 function interpolateColors(color1, color2, factor, colorSpace, interpMethod, pingPong) {
     let c1, c2, interpolated;
 
@@ -175,6 +177,7 @@ function interpolateColors(color1, color2, factor, colorSpace, interpMethod, pin
     }
 }
 
+// Interpolates between two values using the specified method
 function interpolateValues(values1, values2, factor, method, pingPong) {
     if (pingPong) {
         factor = factor < 0.5 ? factor * 2 : 2 - factor * 2;
@@ -199,7 +202,7 @@ function interpolateValues(values1, values2, factor, method, pingPong) {
     }
 }
 
-
+// Convert a hex color string to an RGB array
 function displayOutput(colors, outputStyle) {
     const expandedColors = expandColors(colors, 256);
     const outputTextArea = document.getElementById("outputTextArea");
@@ -214,6 +217,7 @@ function displayOutput(colors, outputStyle) {
     }
 }
 
+// Expand an array of colors to a target length
 function expandColors(colors, targetLength) {
     const expandedColors = [];
     const inputLength = colors.length;
@@ -226,7 +230,7 @@ function expandColors(colors, targetLength) {
     return expandedColors;
 }
 
-
+// Convert an RGB array to a HEX string
 function rgbToHex(r, g, b) {
     return `#${Math.round(r).toString(16).padStart(2, "0")}${Math.round(g).toString(16).padStart(2, "0")}${Math.round(b).toString(16).padStart(2, "0")}`;
 }
