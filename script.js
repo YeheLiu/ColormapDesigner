@@ -14,6 +14,7 @@ const interpolationRadios = document.querySelectorAll('input[name="interpolation
 const outputStyleRadios = document.querySelectorAll('input[name="outputStyle"]');
 const pinpongRadios = document.querySelectorAll('input[name="pingPong"]');
 const randomizeButton = document.querySelector('#randomizeButton');
+const swapColorsButton = document.querySelector('#swapColorsButton');
 const numStepsSlider = document.getElementById("numStepsSlider");
 
 
@@ -56,6 +57,10 @@ randomizeButton.addEventListener('click', () => {
     onClick();
 });
 
+swapColorsButton.addEventListener('click', () => {
+    swapColors();
+    onClick();
+});
 
 
 document.getElementById("copyButton").addEventListener("click", function () {
@@ -122,6 +127,15 @@ function getRandomColor() {
         color += letters[Math.floor(Math.random() * 6)];
     }
     return color;
+}
+
+function swapColors() {
+    const color1Input = document.getElementById("color1");
+    const color2Input = document.getElementById("color2");
+    const tempColor = color1Input.value;
+    color1Input.value = color2Input.value;
+    color2Input.value = tempColor;
+    onClick();
 }
 
 function interpolateColors(color1, color2, factor, colorSpace, interpMethod, pingPong) {
