@@ -124,50 +124,50 @@ function getRandomColor() {
     return color;
 }
 
-function interpolateColors(color1, color2, factor, colorSpace, interpMethod) {
+function interpolateColors(color1, color2, factor, colorSpace, interpMethod, pingPong) {
     let c1, c2, interpolated;
 
     switch (colorSpace) {
         case "hsv":
             c1 = rgbToHsv(color1);
             c2 = rgbToHsv(color2);
-            interpolated = interpolateValues(c1, c2, factor, interpMethod);
+            interpolated = interpolateValues(c1, c2, factor, interpMethod, pingPong);
             return hsvToRgb(interpolated);
         case "hsl":
             c1 = rgbToHsl(color1);
             c2 = rgbToHsl(color2);
-            interpolated = interpolateValues(c1, c2, factor, interpMethod);
+            interpolated = interpolateValues(c1, c2, factor, interpMethod, pingPong);
             return hslToRgb(interpolated);
         case "lab":
             c1 = rgbToLab(color1);
             c2 = rgbToLab(color2);
-            interpolated = interpolateValues(c1, c2, factor, interpMethod);
+            interpolated = interpolateValues(c1, c2, factor, interpMethod, pingPong);
             return labToRgb(interpolated);
         case "xyz":
             c1 = rgbToXyz(color1);
             c2 = rgbToXyz(color2);
-            interpolated = interpolateValues(c1, c2, factor, interpMethod);
+            interpolated = interpolateValues(c1, c2, factor, interpMethod, pingPong);
             return xyzToRgb(interpolated);
         case "lch":
             c1 = rgbToLch(color1);
             c2 = rgbToLch(color2);
-            interpolated = interpolateValues(c1, c2, factor, interpMethod);
+            interpolated = interpolateValues(c1, c2, factor, interpMethod, pingPong);
             return lchToRgb(interpolated);
         case "cmyk":
             c1 = rgbToCmyk(color1);
             c2 = rgbToCmyk(color2);
-            interpolated = interpolateValues(c1, c2, factor, interpMethod);
+            interpolated = interpolateValues(c1, c2, factor, interpMethod, pingPong);
             return cmykToRgb(interpolated);
         default:
             c1 = hexToRgb(color1);
             c2 = hexToRgb(color2);
-            interpolated = interpolateValues(c1, c2, factor, interpMethod);
+            interpolated = interpolateValues(c1, c2, factor, interpMethod, pingPong);
             return rgbToHex(interpolated[0], interpolated[1], interpolated[2]);; // Return RGB values directly
     }
 }
 
 function interpolateValues(values1, values2, factor, method, pingPong) {
-    if (pingPong == 'on') {
+    if (pingPong) {
         factor = factor < 0.5 ? factor * 2 : 2 - factor * 2;
     }
 
