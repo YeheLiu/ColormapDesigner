@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    color: aliceblue;
+    text-align: left;
+    background-color: #0f0f0f;
+}
+
+form {
+    margin: 0 0 20px 20px;
+    color: aliceblue;
+}
+
+button {
+    margin-top: 10px;
+    width: 100px;
+}
+
+input[type=number] {
+    width: 50px;
+}
+
+.mapContainer,
+#outputTextArea {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.mapLabel {
+    margin-right: 10px;
+    width: 100px;
+}
+
+.colorBox,
+.grayBox,
+.lightnessBox {
+    flex-grow: 1;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    width: 100px;
+}
+
+.video-container {
+    width: 100px;
+}
