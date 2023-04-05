@@ -3,7 +3,7 @@ body {
     color: #ffffff;
     text-align: left;
     background-color: #0f0f0f;
-    background-image: url('background.jpeg');
+    background-image: url('./background.jpeg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
