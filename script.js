@@ -57,12 +57,7 @@ randomizeButton.addEventListener('click', () => {
     onClick();
 });
 
-swapColorsButton.addEventListener('click', () => {
-    swapColors();
-    onClick();
-});
-
-
+document.getElementById("swapColorsButton").addEventListener("click", swapColors);
 document.getElementById("copyButton").addEventListener("click", function () {
     const outputTextArea = document.getElementById("outputTextArea");
     outputTextArea.select();
@@ -121,10 +116,10 @@ function onClick() {
 }
 
 function getRandomColor() {
-    const letters = '012DEF';
+    const letters = '0000111223456789ABCDDEEEFFFF';
     let color = '#';
     for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 6)];
+        color += letters[Math.floor(Math.random() * 28)];
     }
     return color;
 }
