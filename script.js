@@ -16,6 +16,8 @@ const pinpongRadios = document.querySelectorAll('input[name="pingPong"]');
 const randomizeButton = document.querySelector('#randomizeButton');
 const numStepsSlider = document.getElementById("numStepsSlider");
 
+
+
 numSteps.addEventListener('input', () => {
     numStepsSlider.value = numSteps.value;
     onClick();
@@ -70,7 +72,7 @@ function onClick() {
     const outputStyle = document.querySelector('input[name="outputStyle"]:checked').value;
     const colorSpace = document.querySelector('input[name="colorSpace"]:checked').value;
     const interpMethod = document.querySelector('input[name="interpolation"]:checked').value;
-    const pingPong = document.querySelector('input[name="interpolation"]:checked').value;
+    const pingPong = document.getElementById("pingPongOn").checked;
 
 
     const colorMapDiv = document.getElementById("colorMap");
